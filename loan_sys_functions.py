@@ -1,8 +1,8 @@
 from datetime import date
-from loan_sys_test import Customer
-from loan_sys_test import Loan
-from loan_sys_test import Accounts_receivable
-from loan_sys_test import Interest
+from loan_sys_objects import Customer
+from loan_sys_objects import Loan
+from loan_sys_objects import Accounts_receivable
+from loan_sys_objects import Interest
 
 
 date_hist = [date(2018,12,31)]
@@ -91,4 +91,3 @@ def loan_advance(collateral_object, loan_object, advance_amount, yyyy, mm, dd, i
 
 print(loan_hist)
 print(liquidity_hist)
-

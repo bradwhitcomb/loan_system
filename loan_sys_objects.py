@@ -3,14 +3,14 @@ from datetime import date
 class Customer(object):
     """ Creates a customer object that holds general information about the borrower"""
     
-    def __init__(self, name, phone, zip):
+    def __init__(self, name, email, city):
         self.name = name
-        self.phone = phone
-        self.zip = zip
+        self.email = email
+        self.city = city
         
 
     def __repr__(self):
-        return (f'Customer name: {self.name}\nCustomer number: {self.phone}\nCustomer Location: {self.zip} ')
+        return (f'Customer name: {self.name}\nCustomer email: {self.email}\nCustomer Location: {self.city} ')
 
 
 class Loan(object):
@@ -93,7 +93,7 @@ class Interest(object):
 # interest = Interest(.03, .0375)
 # print(borrower,'\n',loan,'\n',collateral,'\n',interest)
 
-# print(borrower.name, borrower.phone, borrower.zip)
+# print(borrower.name, borrower.email, borrower.city)
 # print(collateral.past_dues, collateral.total_aging, collateral.advance_rate)
 # print(loan.commitment, loan.loan)
 # print(interest.base_rate, interest.margin)
@@ -107,10 +107,10 @@ class Interest(object):
 #     global borrower
 #     Customer.dates = []
 #     name = input("What is Customer Name?  ")
-#     phone = int(input("What is Customer phone number? "))
-#     zip = int(input("What is Customer zip? "))
+#     email = int(input("What is Customer email number? "))
+#     city = int(input("What is Customer city? "))
 
-#     borrower = Customer(name, phone, zip)
+#     borrower = Customer(name, email, city)
 #     return borrower
 
 
