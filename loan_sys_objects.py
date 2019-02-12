@@ -25,9 +25,9 @@ class Loan(object):
         return (f'Commitment:${self.commitment:,}\nLoan: ${self.loan:,}')
 
 
-    def loan_draw(self, draw):
-        """Creates draw downs on the credit facility which increase the outstanding loan"""
-        self.loan += draw
+    def loan_draw(self, presentments):
+        """Creates presentments downs on the credit facility which increase the outstanding loan"""
+        self.loan += presentments
         return self.loan
 
 
@@ -98,7 +98,7 @@ class Interest(object):
 # print(loan.commitment, loan.loan)
 # print(interest.base_rate, interest.margin)
 
-# a = loan.loan_draw(50)
+# a = loan.loan_presentments(50)
 # b = loan.loan_payment(15)
 # print(loan.loan,a,loan.loan,b,loan.loan)
 
@@ -128,7 +128,7 @@ class Interest(object):
 #     Customer.dates.append(today)
 #     days_interest = elapsed_days.days
 #     accrued_interest = days_interest/360 * interest.interest_rate() * loan.loan
-#     loan.loan_draw(accrued_interest)
+#     loan.loan_presentments(accrued_interest)
 #     return accrued_interest, loan.loan
 # loan.loan
 
@@ -137,7 +137,7 @@ class Interest(object):
 #     "Commitment": loan.commitment,
 #     "Loan_outstanding": loan.loan,
 #     "Collateral_availability": collateral.loan_availability(),
-#     "Un-drawn_availability" : collateral.loan_availability() - loan.loan
+#     "Un-presentmentsn_availability" : collateral.loan_availability() - loan.loan
     
 # }
 
@@ -176,8 +176,8 @@ accrued_interest_hist = [0]
     
 # def interest_settlement(first_yyyy, first_mm, first_dd, end_yyyy, end_mm, end_dd, loan_object):
 #     """ Sum the period's (per month if compounded monthly) interest and add it to the loan """
-#     interest_draw = interest_calculation(first_yyyy, first_mm, first_dd, end_yyyy, end_mm, end_dd)
-#     loan_object.loan_draw(interest_draw)
+#     interest_presentments = interest_calculation(first_yyyy, first_mm, first_dd, end_yyyy, end_mm, end_dd)
+#     loan_object.loan_presentments(interest_presentments)
 
 
 # def collections(collateral_object, loan_object, amount):
@@ -186,19 +186,19 @@ accrued_interest_hist = [0]
 
 
 # day one!
-# loan.loan_draw(1000)
+# loan.loan_presentments(1000)
 # daily_build(2019,1,1,loan, interest)
 # print(excess_availability(collateral,loan))
-# loan.loan_draw(1000)
+# loan.loan_presentments(1000)
 # daily_build(2019,1,2,loan, interest)
 # excess_availability(collateral, loan)
-# loan.loan_draw(1000)
+# loan.loan_presentments(1000)
 # daily_build(2019,1,3, loan, interest)
 # excess_availability(collateral, loan)
-# loan.loan_draw(1000)
+# loan.loan_presentments(1000)
 # daily_build(2019,1,4, loan, interest)
 # print(excess_availability(collateral, loan))
-# loan.loan_draw(1000)
+# loan.loan_presentments(1000)
 # daily_build(2019,1,5,loan, interest)
 
 # status = {
@@ -206,7 +206,7 @@ accrued_interest_hist = [0]
 #     "Commitment": loan.commitment,
 #     "Loan_outstanding": loan.loan,
 #     "Collateral_availability": collateral.loan_availability(),
-#     "Un-drawn_availability" : collateral.loan_availability() - loan.loan
+#     "Un-presentmentsn_availability" : collateral.loan_availability() - loan.loan
     
 # }
 
@@ -224,7 +224,7 @@ accrued_interest_hist = [0]
 # def loan_advance(collateral_object, loan_object, advance_amount):
 #     """ Calculates if the borrower has sufficient excess availability.  If EA can't cover the advance then the transaction is rejected and """
 #     if excess_availability(collateral_object, loan_object) > advance_amount:
-#         loan_object.loan_draw(advance_amount)
+#         loan_object.loan_presentments(advance_amount)
 #     else:
 #         print(f'Your advance of ${advance_amount:,.2f} exceeds your excess_availability of ${excess_availability(collateral_object, loan_object):,.2f}.  ADVANCE REJECTED!')
         
@@ -235,7 +235,7 @@ accrued_interest_hist = [0]
 
 # print(loan)  
 
-# loan.loan_draw(50)
+# loan.loan_presentments(50)
 
 # print(loan)
 
